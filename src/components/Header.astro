@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon';
+import Link from './Link.astro';
+import { ActiveTab } from '@types';
+
+interface Props {
+  activeTab: ActiveTab;
+}
+
+const { activeTab } = Astro.props;
+---
+
+<header class="relative px-6 py-8 flex flex-col gap-4 items-start">
+  <div class="w-full flex justify-between items-center">
+    <a href="/">
+      <h1 class="text-2xl md:text-4xl font-bold font-poppins">S .</h1>
+    </a>
+    <a href="/search">
+      <Icon name="octicon:search-24" class={`w-4 md:w-6`} />
+    </a>
+  </div>
+  <nav class="w-full flex items-center gap-2 md:gap-4 -ml-2">
+    <Link activeTab={activeTab === ActiveTab.home} tabName="home" to="/" />
+    <Link activeTab={activeTab === ActiveTab.blog} tabName="blog" to="/blog" />
+    <Link
+      activeTab={activeTab === ActiveTab.about}
+      tabName="about"
+      to="/about"
+    />
+    <Link
+      activeTab={activeTab === ActiveTab.guestJournals}
+      tabName="guest journals"
+      to="/guestjournals"
+    />
+  </nav>
+</header>

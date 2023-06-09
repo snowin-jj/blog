@@ -1,0 +1,20 @@
+---
+import { ActiveTab } from '@types';
+import ProfileCard from '@components/ProfileCard.astro';
+
+import Base from '@layouts/Base.astro';
+---
+
+<Base title="About" tabName={ActiveTab.about}>
+  <div class="relative">
+    <ProfileCard />
+    <p class="my-6 text-justify">
+      Hello, I am Snowin, a Full Stack Developer specializing in helping
+      startups and businesses achieve accelerated growth. With a strong track
+      record of consistently delivering exceptional results, I have demonstrated
+      my ability to drive tangible success for my clients. If you would like to
+      explore my previous work and accomplishments, please feel free to visit
+      the following link.
+    </p>
+  </div>
+</Base>

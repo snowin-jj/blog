@@ -1,0 +1,16 @@
+---
+interface Props {
+  activeTab: boolean;
+  tabName: string;
+  to: string;
+}
+
+const { activeTab, tabName, to } = Astro.props;
+---
+
+<a
+  href={to}
+  class={`p-2 md:px-4 md:py-2 rounded-md ${
+    activeTab && 'bg-active-dark '
+  } transition-colors duration-300 hover:bg-active-dark/90`}>{tabName}</a
+>

@@ -1,0 +1,18 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@firebase/*": ["src/firebase/*"],
+      "@types": ["src/types.d.ts"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "verbatimModuleSyntax": true,
+    "types": ["@astrojs/image/client"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,32 @@
+---
+import type { Post } from '@types';
+import { formatDate } from '@utils/formatDate';
+import { sortByDate } from '@utils/sortPost';
+
+interface Props {
+  posts: Post[];
+}
+
+let { posts } = Astro.props;
+
+posts = posts.sort(sortByDate);
+---
+
+<div class="flex flex-col gap-5 w-full">
+  {
+    posts.map((post) => (
+      <div class="p-2 md:px-4 md:py-4 flex items-start gap-6 rounded-md transition-colors ease-out duration-300 hover:bg-active-dark/90">
+        <p class="flex flex-col items-start gap-2 font-poppins font-light min-w-max">
+          <span>
+            {formatDate(post.frontmatter.date, { month: true, day: true })}
+          </span>
+          <span>{formatDate(post.frontmatter.date, { year: true })}</span>
+        </p>
+        <a href={post.url} class="flex flex-col items-start gap-2">
+          <h1 class="font-bold">{post.frontmatter.title}</h1>
+          <p class="font-light">{post.frontmatter.description}</p>
+        </a>
+      </div>
+    ))
+  }
+</div>

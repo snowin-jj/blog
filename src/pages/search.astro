@@ -1,0 +1,13 @@
+---
+import { ActiveTab, type PostFrontmatter } from '@types';
+import Base from '@layouts/Base.astro';
+import { Search as SearchComponent } from '@components/Search';
+
+const posts = await Astro.glob<PostFrontmatter>('./blog/*.md');
+---
+
+<Base title="Blog" tabName={ActiveTab.blog}>
+  <main class="mt-2 flex flex-col gap-10">
+    <SearchComponent client:load posts={posts} />
+  </main>
+</Base>

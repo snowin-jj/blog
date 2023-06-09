@@ -1,0 +1,63 @@
+---
+import Header from '@components/Header.astro';
+import type { ActiveTab } from '@types';
+
+interface Props {
+  title: string;
+  tabName: ActiveTab;
+}
+
+let { title, tabName } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="shortcut icon" href="/logo.png" type="image/png" />
+    <title>{title} / Snowin</title>
+  </head>
+  <body
+    class="bg-black text-text-light text-sm md:text-base md:max-w-2xl md:mx-auto"
+  >
+    <Header activeTab={tabName} />
+    <main class="px-6">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style lang="css" is:global>
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Bold.ttf') format('woff2');
+    font-display: swap;
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Light.ttf') format('woff2');
+    font-display: swap;
+    font-weight: 300;
+  }
+
+  @font-face {
+    font-family: 'NotoSans';
+    src: url('/fonts/NotoSans-Regular.ttf') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'NotoSans';
+    src: url('/fonts/NotoSans-Light.ttf') format('woff2');
+    font-display: swap;
+    font-weight: 300;
+  }
+
+  body {
+    font-family: NotoSans, sans-serif;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon';
+
+interface Props {
+  name: string;
+  icon: string;
+  to: string;
+}
+
+const { icon, name, to } = Astro.props;
+---
+
+<a
+  href={to}
+  target="_blank"
+  class="flex items-center gap-8 md:gap-12 border-2 border-border rounded-md p-2 md:px-4 md:py-2 transition-colors duration-300 hover:bg-active-dark"
+>
+  <span class="flex items-center gap-2">
+    <Icon name={icon} class="w-4 md:w-6" />
+    <p>{name}</p>
+  </span>
+  <Icon name="tabler:arrow-up-right" class="w-4 md:w-5" />
+</a>
