@@ -1,7 +1,6 @@
 ---
 import type { MarkdownLayoutProps } from 'astro';
 import { type PostFrontmatter, ActiveTab } from '@types';
-import { Image } from 'astro:assets';
 import { formatDate } from '@utils/formatDate';
 import { foundImageFormat } from '@utils/findImageFormat';
 import Base from './Base.astro';
@@ -22,11 +21,9 @@ const slug = url?.split('/')[2];
   </div>
   {
     foundImageFormat !== undefined && (
-      <Image
+      <img
         class="my-4"
-        src={`images/${slug}.jpg`}
-        width={100}
-        height={100}
+        src={`/images/${slug}.jpg`}
         class="w-full object-cover my-4"
         alt="image"
       />
