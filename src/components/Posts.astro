@@ -18,7 +18,10 @@ posts = posts.sort(sortByDate);
       <div class="p-2 md:px-4 md:py-4 flex items-start gap-6 rounded-md transition-colors ease-out duration-300 hover:bg-active-dark/90">
         <p class="flex flex-col items-start gap-2 font-poppins font-light min-w-max">
           <span>
-            {formatDate(post.frontmatter.date, { month: true, day: true })}
+            {formatDate(post.frontmatter.date, {
+              month: true,
+              day: true,
+            })}
           </span>
           <span>{formatDate(post.frontmatter.date, { year: true })}</span>
         </p>
